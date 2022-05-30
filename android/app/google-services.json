@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "816509500308",
+    "project_id": "gymtymapp",
+    "storage_bucket": "gymtymapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816509500308:android:f510f5f7d095eb43ad2d81",
+        "android_client_info": {
+          "package_name": "com.example.gymtym_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816509500308-0vjj9tl444e4jd17hdt5n381g4hsl1ku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gymtym_login",
+            "certificate_hash": "69be941ea23916a98a839335fcefe2509e0a6b6a"
+          }
+        },
+        {
+          "client_id": "816509500308-6hslsgl0kd7gk6p31qn2ej05k1jolt22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSCBzcRRXZo77BdixVJXX4S9jr3xF-qKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816509500308-6hslsgl0kd7gk6p31qn2ej05k1jolt22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
