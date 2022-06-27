@@ -13,6 +13,7 @@ For the scraping, the BeautifulSoup Library in Python was used to scrape live gy
 A choice had to be made between MySQL and MongoDB. MySQL was chosen due to the compliance of our scraped data with relational paradigms. Each timeslot has an average traffic, and thus SQL was chosen over NoSQL as it met our needs. Number of difficulties were faced in the process of producing this iteration. For the frontend, there were compatibility issues in importing various dart packages. The Android Emulator took long time to run, making debugging difficult.
 
 **Tech Stack**
+  
   Frontend: 
     1. Flutter
     
