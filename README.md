@@ -4,7 +4,7 @@ Problem Motivation : Gym Traffic varies through the day and follows a pattern ba
 
 Proposed Level of Achievment : Apollo 11
 
-Proposed Core Features : Login Page, Registration page, Home page, Timeslots Page 
+Proposed Core Features : Login and Registration of Users, Provide optimal time slots upon input of NUSMods Timetable link, Chat and Find a buddy features
 
 The gym-tym app primarily aims to inform the user, the best possible time slots to use the gym (when it is least crowded). Additional features we are looking at include a feature that helps find gym buddies with similar free time. For this milestone, the frontend for login, registration and displaying the timeslots has been created and the scraper has been created to scrape data at scheduled intervals and add it to our MySQL database. With a bit of modifications to be made to the database (we need it to store the average of all scraped values instead of the most recent), we will soon be hosting the scraper on Heroku.
 
@@ -22,7 +22,20 @@ A REST API was built using Django's MVT pattern. Django Models were used to inte
 
 <img width="1280" alt="image" src="https://user-images.githubusercontent.com/95856653/175950138-64236104-bd55-4cf0-98d4-ba8c259846b7.png">
 
-The responses above are provided in a JSON Format and do not alter the state of the server, as per RESTful API principles. The API is yet to be deployed to Amazon Web API Gateway, thus dummy values are being used for frontend. 
+The responses above are provided in a JSON Format and do not alter the state of the server, as per RESTful API principles. The API is yet to be deployed to Amazon Web API Gateway, thus dummy values are being used for frontend.
+
+Problems encountered : 
+
+1) Initially, the scraper used the APScheduler library to schedule the scrape. The architecture was pretty complicated- I had to use a
+   combination of triggers and a job store. However, the Heroku dynos slept after 30 minutes of inactivity unless I'd paid(my scraper is inactive during
+   the night as the gym isn't open then). Thus, I decided to switch to AWS EC2, as it also provided me the opportunity to separate the scraping
+   logic from the scheduling logic using a cron job. 
+
+2) The cron job took more than a day to set in place. Despite the fact that I set the Local and RTC Timezone of the Server to Asia/Singapore, 
+   the cronjob for some reason kept scraping at UTC time. Setting the CRON_TMZ env variable to Asia/Singapore yielded no benefits either. What 
+   made debugging this very difficult was the fact that my Python code (web scraper) ran correctly in SGT.
+   
+ For Milestone 3, we will be adding a chat feature and a find a buddy feature for finding a partner with a similar training plan to hit the gym together.
 
 **Tech Stack**
   
