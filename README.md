@@ -2,6 +2,8 @@
 
 Problem Motivation : Gym Traffic varies through the day and follows a pattern based on users' timetables, but a user doesn't know when a gym is least likely to be crowded during his free time. 
 
+Proposed Level of Achievment : Apollo 11
+
 Proposed Core Features : Login Page, Registration page, Home page, Timeslots Page 
 
 The gym-tym app primarily aims to inform the user, the best possible time slots to use the gym (when it is least crowded). Additional features we are looking at include a feature that helps find gym buddies with similar free time. For this milestone, the frontend for login, registration and displaying the timeslots has been created and the scraper has been created to scrape data at scheduled intervals and add it to our MySQL database. With a bit of modifications to be made to the database (we need it to store the average of all scraped values instead of the most recent), we will soon be hosting the scraper on Heroku.
