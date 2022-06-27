@@ -20,7 +20,6 @@ A choice had to be made between MySQL and MongoDB. MySQL was chosen due to the c
   
 
     
-Login page developed using Flutter frontend and linked to Firebase backend for email-password authentication
 
 ![login](https://user-images.githubusercontent.com/88987178/175844778-c3fb917c-9900-4fc0-9710-3f3cd53e6634.jpg)
 
