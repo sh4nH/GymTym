@@ -14,13 +14,16 @@ A choice had to be made between MySQL and MongoDB. MySQL was chosen due to the c
 
 **Tech Stack**
   
-  Frontend: 
+  Frontend:
+  
+  1. Flutter
     
-    1. Flutter
     
   Backend:
+  
+  1.Firebase
     
-    1. Firebase
+    
 
 Login page developed using Flutter frontend and linked to Firebase backend for email-password authentication
 
