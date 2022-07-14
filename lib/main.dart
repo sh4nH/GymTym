@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Email And Password Login',
+      title: 'Email And Password Login Test',
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),

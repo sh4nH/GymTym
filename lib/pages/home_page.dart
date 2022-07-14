@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset : false,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text("Home"),
         centerTitle: true,
@@ -51,7 +51,9 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(fontSize: 20),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Text(
                 "Please input NUSMods timetable link :",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -63,22 +65,24 @@ class _HomePageState extends State<HomePage> {
               TextFormField(
                 autofocus: false,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.schedule),
-                  contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-                  hintText: "NUSMods Timetable Link",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  )
-                ),
+                    prefixIcon: Icon(Icons.schedule),
+                    contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+                    hintText: "NUSMods Timetable Link",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, 
-                  MaterialPageRoute(builder: (context) => TimeSlotsPage()));
-                },
-                child: const Text('Submit')
-              ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TimeSlotsPage()));
+                  },
+                  child: const Text('Submit')),
               SizedBox(
                 height: 150,
               ),
@@ -97,7 +101,7 @@ class _HomePageState extends State<HomePage> {
   //logout function
   Future<void> logout(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => LoginPage()));
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }
