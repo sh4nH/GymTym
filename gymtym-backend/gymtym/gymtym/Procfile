@@ -1,5 +1,0 @@
-web: scrape_reboks.py
-
-worker: scrape_reboks.py
-
-clock: python scrape_reboks.py
