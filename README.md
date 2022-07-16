@@ -1,5 +1,9 @@
 # GymTym Application
 
+## General Info
+
+Frontend for GymTym Application
+
 Problem Motivation : Gym Traffic varies through the day and follows a pattern based on users' timetables, but a user doesn't know when a gym is least likely to be crowded during his/her free time. 
 
 Proposed Level of Achievment : Apollo 11
