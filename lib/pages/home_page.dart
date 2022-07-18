@@ -1,8 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api, unnecessary_this
+
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gymtym_login/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gymtym_login/pages/timeslots_page.dart';
+import 'package:http/http.dart' as http;
 
 import 'login_page.dart';
 
@@ -33,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset : false,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text("Home"),
         centerTitle: true,
@@ -41,49 +46,54 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(
+              const Text(
                 "GymTym analyzes live traffic in NUS Gyms and provides most the optimal timeslots for you to hit the gym",
                 style: TextStyle(fontSize: 20),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20,),
-              Text(
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
                 "Please input NUSMods timetable link :",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextFormField(
                 autofocus: false,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.schedule),
-                  contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-                  hintText: "NUSMods Timetable Link",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  )
-                ),
+                    prefixIcon: const Icon(Icons.schedule),
+                    contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+                    hintText: "NUSMods Timetable Link",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, 
-                  MaterialPageRoute(builder: (context) => TimeSlotsPage()));
-                },
-                child: const Text('Submit')
-              ),
-              SizedBox(
+                  onPressed: () {
+                    Future<http.Response> response = http.get(Uri.parse('uri'));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TimeSlotsPage()));
+                  },
+                  child: const Text('Submit')),
+              const SizedBox(
                 height: 150,
               ),
               ActionChip(
-                  label: Text("Logout"),
+                  label: const Text("Logout"),
                   onPressed: () {
                     logout(context);
                   }),
@@ -97,7 +107,8 @@ class _HomePageState extends State<HomePage> {
   //logout function
   Future<void> logout(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
+    // ignore: use_build_context_synchronously
     Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => LoginPage()));
+        MaterialPageRoute(builder: (context) => const LoginPage()));
   }
 }
