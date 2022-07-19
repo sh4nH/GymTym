@@ -1,75 +1,95 @@
 import 'package:flutter/cupertino.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:gymtym_login/model/user_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import 'login_page.dart';
+import 'day_slots.dart';
 
 class TimeSlotsPage extends StatelessWidget {
-   @override
+  const TimeSlotsPage({Key? key}) : super(key: key);
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('TimeSlots'),
-        centerTitle: true,
-        backgroundColor: Colors.deepPurple,
+      body: Padding(
+        padding: EdgeInsets.all(12),
+        child: Card(
+          shape: RoundedRectangleBorder(),
+          child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            // ignore: unnecessary_const, prefer_const_literals_to_create_immutables
+            child: Column(children: [
+              ExpansionTile(
+                title: Text("Monday"),
+                children: [
+                  DaySlots(start: 7, end: 8),
+                  DaySlots(start: 11, end: 12),
+                  DaySlots(start: 14, end: 15),
+                  DaySlots(start: 15, end: 16),
+                  DaySlots(start: 15, end: 16),
+                ],
+              ),
+              ExpansionTile(
+                title: Text("Tuesday"),
+                children: [
+                  DaySlots(start: 7, end: 8),
+                  DaySlots(start: 11, end: 12),
+                  DaySlots(start: 14, end: 15),
+                  DaySlots(start: 15, end: 16),
+                  DaySlots(start: 15, end: 16),
+                ],
+              ),
+              ExpansionTile(
+                title: Text("Wednesday"),
+                children: [
+                  DaySlots(start: 7, end: 8),
+                  DaySlots(start: 11, end: 12),
+                  DaySlots(start: 14, end: 15),
+                  DaySlots(start: 15, end: 16),
+                  DaySlots(start: 15, end: 16),
+                ],
+              ),
+              ExpansionTile(
+                title: Text("Thursday"),
+                children: [
+                  DaySlots(start: 7, end: 8),
+                  DaySlots(start: 11, end: 12),
+                  DaySlots(start: 14, end: 15),
+                  DaySlots(start: 15, end: 16),
+                  DaySlots(start: 15, end: 16),
+                ],
+              ),
+              ExpansionTile(
+                title: Text("Friday"),
+                children: [
+                  DaySlots(start: 7, end: 8),
+                  DaySlots(start: 11, end: 12),
+                  DaySlots(start: 14, end: 15),
+                  DaySlots(start: 15, end: 16),
+                  DaySlots(start: 15, end: 16),
+                ],
+              ),
+              ExpansionTile(
+                title: Text("Saturday"),
+                children: [
+                  DaySlots(start: 7, end: 8),
+                  DaySlots(start: 11, end: 12),
+                  DaySlots(start: 14, end: 15),
+                  DaySlots(start: 15, end: 16),
+                  DaySlots(start: 15, end: 16),
+                ],
+              ),
+              ExpansionTile(
+                title: Text("Sunday"),
+                children: [
+                  DaySlots(start: 7, end: 8),
+                  DaySlots(start: 11, end: 12),
+                  DaySlots(start: 14, end: 15),
+                  DaySlots(start: 15, end: 16),
+                  DaySlots(start: 15, end: 16),
+                ],
+              ),
+            ]),
+          ),
+        ),
       ),
-      body: Column(
-        children: [
-          ListTile(
-            leading: Icon(Icons.schedule),
-            title: Text("Utown Gym"),
-            subtitle: Text("Monday, 17:00 - 18:30"),
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.deepPurple, width: 1),
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.schedule),
-            title: Text("Utown Gym"),
-            subtitle: Text("Tuesday, 07:00 - 08:30"),
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.deepPurple, width: 1),
-              borderRadius: BorderRadius.circular(10),
-            ),
-
-          ),
-          ListTile(
-            leading: Icon(Icons.schedule),
-            title: Text("Utown Gym"),
-            subtitle: Text("Wednesday, 10:00 - 12:30"),
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.deepPurple, width: 1),
-              borderRadius: BorderRadius.circular(10),
-            ), 
-          ),
-          ListTile(
-            leading: Icon(Icons.schedule),
-            title: Text("MPSH Gym"),
-            subtitle: Text("Thursday, 17:00 - 18:30"),
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.deepPurple, width: 1),
-              borderRadius: BorderRadius.circular(10),
-            ), 
-
-          ),
-          ListTile(
-            leading: Icon(Icons.schedule),
-            title: Text("MPSH Gym"),
-            subtitle: Text("Friday, 17:00 - 18:30"),
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.deepPurple, width: 1),
-              borderRadius: BorderRadius.circular(10),
-            ),
-
-          ),
-        ],
-      )
     );
   }
-
 }
-

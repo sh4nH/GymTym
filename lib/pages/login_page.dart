@@ -1,8 +1,9 @@
-import 'package:gymtym_login/pages/home_page.dart';
+import 'package:gymtym_login/pages/constraints_page.dart';
+import 'package:gymtym_login/pages/main_page.dart';
 import 'package:gymtym_login/pages/registration_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart'; 
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
 
   // firebase
   final _auth = FirebaseAuth.instance;
-  
+
   // string for displaying the error Message
   String? errorMessage;
 
@@ -116,14 +117,19 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(
-                        height: 200, 
+                        height: 200,
                         child: Image.asset(
                           "assets/logo.png",
                           fit: BoxFit.contain,
                         )),
                     SizedBox(height: 20),
-                    Text("Welcome to GymTym!", style: TextStyle(fontSize: 20, color: Colors.deepPurple ),),
-                    SizedBox(height: 35,),
+                    Text(
+                      "Welcome to GymTym!",
+                      style: TextStyle(fontSize: 20, color: Colors.deepPurple),
+                    ),
+                    SizedBox(
+                      height: 35,
+                    ),
                     emailField,
                     SizedBox(height: 25),
                     passwordField,
@@ -170,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => HomePage())),
+                      MaterialPageRoute(builder: (context) => MainPage())),
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
