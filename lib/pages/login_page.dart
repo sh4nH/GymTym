@@ -1,4 +1,5 @@
-import 'package:gymtym_login/pages/home_page.dart';
+import 'package:gymtym_login/pages/constraints_page.dart';
+import 'package:gymtym_login/pages/main_page.dart';
 import 'package:gymtym_login/pages/registration_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -175,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => HomePage())),
+                      MaterialPageRoute(builder: (context) => MainPage())),
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
