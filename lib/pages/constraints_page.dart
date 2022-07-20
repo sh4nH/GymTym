@@ -1,7 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:gymtym_login/model/user_model.dart';
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class ConstraintsPage extends StatefulWidget {
   const ConstraintsPage({Key? key}) : super(key: key);
@@ -26,8 +27,28 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
     false
   ];
 
+  final url = 'http://127.0.0.1:8000/timeslots/usersettings';
+
+  void postData() async {
+    try {
+      final response = await post(Uri.parse(url), body: {
+        "username": uid,
+        "modslink": link,
+        "days": "All",
+        "day_time": "All",
+        "gym_name": value
+      });
+
+      print(response.body);
+    } catch (er) {}
+  }
+
   final gyms = ['UTown', 'MPSH', 'USC'];
+
   String? value;
+
+  String? link;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +74,9 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
                   borderRadius: BorderRadius.circular(10),
                 )),
             keyboardType: TextInputType.url,
-            onChanged: (text) {},
+            onChanged: (text) {
+              link = text;
+            },
           ),
           SizedBox(
             height: 10,
@@ -217,6 +240,7 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
               onChanged: (newVal) {
                 setState(() {
                   arr[9] = newVal!;
+                  print(uid);
                 });
               }),
           SizedBox(
@@ -265,7 +289,7 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
             child: MaterialButton(
                 padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                 minWidth: MediaQuery.of(context).size.width,
-                onPressed: () {},
+                onPressed: postData,
                 child: Text(
                   "Save Changes",
                   textAlign: TextAlign.center,

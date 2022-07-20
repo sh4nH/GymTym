@@ -1,4 +1,3 @@
-import 'package:gymtym_login/pages/constraints_page.dart';
 import 'package:gymtym_login/pages/main_page.dart';
 import 'package:gymtym_login/pages/registration_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
