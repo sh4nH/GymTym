@@ -48,19 +48,6 @@ Problems encountered :
   Backend: Firebase, Django, SQL, AWS
   
 
-![login](https://user-images.githubusercontent.com/88987178/175844778-c3fb917c-9900-4fc0-9710-3f3cd53e6634.jpg)
-
-
-![login w keyboard](https://user-images.githubusercontent.com/88987178/175844799-13d3a96c-d88e-4c60-81a2-779c6c698f51.jpg)
-
-
-![sign up page](https://user-images.githubusercontent.com/88987178/175844821-e3017b53-cc91-4e39-8b72-a1eed890ecdb.jpg)
-
-
-![Screenshot 2022-06-27 052232](https://user-images.githubusercontent.com/88987178/175844859-e731cdc8-e60c-4406-9330-57f1c2fd3108.jpg)
-
-
-![Screenshot 2022-06-27 052339](https://user-images.githubusercontent.com/88987178/175844865-c95d5025-7dd8-4ef2-bc28-f9a92fdb7c18.jpg)
 
 
 
