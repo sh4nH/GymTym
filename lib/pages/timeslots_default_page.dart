@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gymtym_login/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gymtym_login/pages/timeslots_page.dart';
+import 'package:http/http.dart';
 
 class TimeslotsPageDefault extends StatefulWidget {
   TimeslotsPageDefault({Key? key}) : super(key: key);
@@ -11,6 +14,21 @@ class TimeslotsPageDefault extends StatefulWidget {
 }
 
 class _TimeslotsPageDefaultState extends State<TimeslotsPageDefault> {
+  final url2 =
+      'http://127.0.0.1:10.0.2.2/timeslots/gymtyms/?user=vaishnav&gym=UTown';
+  var slots = [];
+
+  void getData() async {
+    try {
+      final response = await get(Uri.parse(url2));
+      final jsonData = jsonDecode(response.body) as List;
+
+      setState(() {
+        slots = jsonData;
+      });
+    } catch (e) {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +46,8 @@ class _TimeslotsPageDefaultState extends State<TimeslotsPageDefault> {
                   padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                   minWidth: MediaQuery.of(context).size.width,
                   onPressed: () {
-                    TimeSlotsPage();
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => TimeSlotsPage()));
                   },
                   child: Text(
                     "Show timeslots",

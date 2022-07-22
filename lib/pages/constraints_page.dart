@@ -27,21 +27,90 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
     false
   ];
 
-  final url = 'http://127.0.0.1:8000/timeslots/usersettings';
+  String days_provider() {
+    String days = "";
+    for (var i = 0; i <= 6; i++) {
+      if (arr[i]) {
+        if (i == 0) {
+          days += "mon,";
+        } else if (i == 1) {
+          days += "tue,";
+        } else if (i == 2) {
+          days += "wed,";
+        } else if (i == 3) {
+          days += "thu,";
+        } else if (i == 4) {
+          days += "fri,";
+        } else if (i == 5) {
+          days += "sat,";
+        } else if (i == 6) {
+          days += "sun";
+        }
+      }
+    }
+    if (days.length == 27) {
+      days = "all";
+    }
+    if (days.substring(days.length - 1) == ',') {
+      days = days.substring(0, days.length - 1);
+    }
+    return days;
+  }
+
+  String day_time_provider() {
+    String dayTime = "";
+    for (var i = 7; i <= 9; i++) {
+      if (arr[i]) {
+        if (i == 7) {
+          dayTime += "Morning,";
+        } else if (i == 8) {
+          dayTime += "Afternoon,";
+        } else if (i == 9) {
+          dayTime += "Evening";
+        }
+      }
+    }
+    if (dayTime.length == 25) {
+      dayTime = "All";
+    }
+    if (dayTime.substring(dayTime.length - 1) == ',') {
+      dayTime = dayTime.substring(0, dayTime.length - 1);
+    }
+    return dayTime;
+  }
+
+  final url = 'http://10.0.2.2:8000/timeslots/usersettings/';
+  final url2 =
+      'http://127.0.0.1:10.0.2.2/timeslots/gymtyms/?user=vaishnav&gym=UTown';
 
   void postData() async {
     try {
       final response = await post(Uri.parse(url), body: {
         "username": uid,
         "modslink": link,
-        "days": "All",
-        "day_time": "All",
+        "days": days_provider(),
+        "day_time": day_time_provider(),
         "gym_name": value
       });
 
       print(response.body);
-    } catch (er) {}
+    } catch (er) {
+      print(er);
+    }
   }
+
+  // var slots = [];
+
+  // void getData() async {
+  //   try {
+  //     final response = await get(Uri.parse(url2));
+  //     final jsonData = jsonDecode(response.body) as List;
+
+  //     setState(() {
+  //       slots = jsonData;
+  //     });
+  //   } catch (e) {}
+  // }
 
   final gyms = ['UTown', 'MPSH', 'USC'];
 
@@ -289,7 +358,9 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
             child: MaterialButton(
                 padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                 minWidth: MediaQuery.of(context).size.width,
-                onPressed: postData,
+                onPressed: () {
+                  postData();
+                },
                 child: Text(
                   "Save Changes",
                   textAlign: TextAlign.center,
