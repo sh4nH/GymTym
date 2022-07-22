@@ -7,13 +7,15 @@ class TimeSlotsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("TimeSlots"),
+      ),
       body: Padding(
         padding: EdgeInsets.all(12),
         child: Card(
           shape: RoundedRectangleBorder(),
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
-            // ignore: unnecessary_const, prefer_const_literals_to_create_immutables
             child: Column(children: [
               ExpansionTile(
                 title: Text("Monday"),
