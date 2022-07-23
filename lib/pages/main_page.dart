@@ -26,6 +26,10 @@ class _MainPageState extends State<MainPage> {
           bottom: TabBar(
             tabs: [
               Tab(
+                text: 'About',
+                icon: Icon(Icons.aod_rounded),
+              ),
+              Tab(
                 text: 'Constraints',
                 icon: Icon(Icons.analytics_sharp),
               ),
@@ -33,15 +37,11 @@ class _MainPageState extends State<MainPage> {
                 text: 'Timeslots',
                 icon: Icon(Icons.alarm_rounded),
               ),
-              Tab(
-                text: 'About',
-                icon: Icon(Icons.aod_rounded),
-              )
             ],
           ),
         ),
         body: TabBarView(
-            children: [ConstraintsPage(), TimeslotsPageDefault(), AboutPage()]),
+            children: [AboutPage(), ConstraintsPage(), TimeslotsPageDefault()]),
       ),
     );
   }
