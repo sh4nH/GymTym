@@ -1,8 +1,9 @@
-import 'dart:convert';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+
+import '../model/user_model.dart';
 
 class ConstraintsPage extends StatefulWidget {
   const ConstraintsPage({Key? key}) : super(key: key);
@@ -14,20 +15,9 @@ class ConstraintsPage extends StatefulWidget {
 class _ConstraintsPageState extends State<ConstraintsPage> {
   String? uid = FirebaseAuth.instance.currentUser?.uid;
 
-  List<bool> arr = [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    false,
-    false,
-    false
-  ];
+  List<bool> arr = [true, true, true, true, true, true, true, true, true, true];
 
-  String days_provider() {
+  String daysProvider() {
     String days = "";
     for (var i = 0; i <= 6; i++) {
       if (arr[i]) {
@@ -57,7 +47,7 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
     return days;
   }
 
-  String day_time_provider() {
+  String dayTimeProvider() {
     String dayTime = "";
     for (var i = 7; i <= 9; i++) {
       if (arr[i]) {
@@ -79,44 +69,25 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
     return dayTime;
   }
 
-  final url = 'http://10.0.2.2:8000/timeslots/usersettings/';
-  final url2 =
-      'http://127.0.0.1:10.0.2.2/timeslots/gymtyms/?user=vaishnav&gym=UTown';
+  final url = 'http://gymtymapi.herokuapp.com/timeslots/usersettings/';
 
   void postData() async {
     try {
       final response = await post(Uri.parse(url), body: {
         "username": uid,
         "modslink": link,
-        "days": days_provider(),
-        "day_time": day_time_provider(),
+        "days": daysProvider(),
+        "day_time": dayTimeProvider(),
         "gym_name": value
       });
-
-      print(response.body);
-    } catch (er) {
-      print(er);
-    }
+    } catch (er) {}
   }
-
-  // var slots = [];
-
-  // void getData() async {
-  //   try {
-  //     final response = await get(Uri.parse(url2));
-  //     final jsonData = jsonDecode(response.body) as List;
-
-  //     setState(() {
-  //       slots = jsonData;
-  //     });
-  //   } catch (e) {}
-  // }
 
   final gyms = ['UTown', 'MPSH', 'USC'];
 
-  String? value;
+  String value = 'UTown';
 
-  String? link;
+  String link = "None";
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +115,7 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
                 )),
             keyboardType: TextInputType.url,
             onChanged: (text) {
-              link = text;
+              this.link = text;
             },
           ),
           SizedBox(
@@ -309,7 +280,6 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
               onChanged: (newVal) {
                 setState(() {
                   arr[9] = newVal!;
-                  print(uid);
                 });
               }),
           SizedBox(
@@ -342,7 +312,7 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
                 items: gyms.map(buildMenuItem).toList(),
                 onChanged: (value) {
                   setState(() {
-                    this.value = value;
+                    this.value = value!;
                   });
                 },
               ),
