@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gymtym_login/pages/time_slot.dart';
 import 'package:gymtym_login/pages/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 
 class TimeslotsPageDefault extends StatefulWidget {
   TimeslotsPageDefault({Key? key}) : super(key: key);

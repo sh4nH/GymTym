@@ -4,8 +4,8 @@
 # This file should be version controlled.
 
 version:
-  revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
-  channel: stable
+  revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
+  channel: beta
 
 project_type: app
 
@@ -13,26 +13,26 @@ project_type: app
 migration:
   platforms:
     - platform: root
-      create_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
-      base_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
+      create_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
+      base_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
     - platform: android
-      create_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
-      base_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
+      create_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
+      base_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
     - platform: ios
-      create_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
-      base_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
+      create_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
+      base_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
     - platform: linux
-      create_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
-      base_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
+      create_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
+      base_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
     - platform: macos
-      create_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
-      base_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
+      create_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
+      base_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
     - platform: web
-      create_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
-      base_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
+      create_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
+      base_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
     - platform: windows
-      create_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
-      base_revision: fb57da5f945d02ef4f98dfd9409a72b7cce74268
+      create_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
+      base_revision: f90da9b1672f7d006ba760fbb8fd1aa17af1a82a
 
   # User provided section
 

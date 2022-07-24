@@ -11,14 +11,12 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  String text = " 'Bro, can I share with you?' \n" +
-      "\nWe all know that these are the most dreaded words that gym-goers can hear. \n" +
-      "\nThus, we at GymTym analyze live traffic at NUS gyms continuously to provide you with the " +
-      "least crowded timeslots- optimized according to your school timetable.\n" +
-      "\nWe also provide other constraints - choosing your preferred time of the day and your preferred day of the week.\n" +
-      "\nHead over to the Constraints Page and input your NUSMods Link (optional) with the constraints you   \n" +
-      "want, and then find the most optimal timeslots (ordered from least to most crowded)\n" +
-      "for your constraints in the Timeslots page.\n" +
+  String text = "GymTym analyzes live traffic at NUS gyms continuously to provide you with the " +
+      "least crowded timeslots- optimized according to your school timetable and constraints " +
+      "such as your preferred time of the day and your preferred day of the week.\n" +
+      "\nHead over to the Constraints Page and input your NUSMods Link (optional) with the constraints you " +
+      "want, and then find the most optimal timeslots (ordered from least to most crowded) \n" +
+      "in the Timeslots page.\n" +
       "\nIf you have any suggestions to improve the app, contact us @shanh2002 or @veggienav on telegram!";
 
   @override
@@ -26,8 +24,33 @@ class _AboutPageState extends State<AboutPage> {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Scaffold(
-        backgroundColor: Colors.deepPurple[100],
+        backgroundColor: Colors.grey[50],
         body: ListView(children: [
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                  height: 50,
+                  child: Image.asset(
+                    "assets/logo.png",
+                    fit: BoxFit.contain,
+                  )),
+              Container(
+                width: 15,
+              ),
+              Text(
+                "GymTym",
+                style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 38)),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 25,
+          ),
           Text(
             text,
             style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 20)),
