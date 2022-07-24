@@ -36,6 +36,8 @@ dependencies:
   fluttertoast: ^8.0.9
   http: ^0.13.4
   google_fonts: ^3.0.1
+  firebase_core_web: ^1.7.1
+  
 
 
 dev_dependencies:

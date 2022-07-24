@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,7 +15,21 @@ class ConstraintsPage extends StatefulWidget {
   State<ConstraintsPage> createState() => _ConstraintsPageState();
 }
 
+var modsL;
+
 class _ConstraintsPageState extends State<ConstraintsPage> {
+  fetchLink() async {
+    try {
+      final response = await get(Uri.https('gymtymapi.herokuapp.com',
+          '/timeslots/usersettings', {'username': uid}));
+      Map<String, dynamic> modsLink = jsonDecode(response.body);
+      modsL = modsLink;
+    } catch (e) {
+      print(modsL);
+      print(e);
+    }
+  }
+
   String? uid = FirebaseAuth.instance.currentUser?.uid;
 
   List<bool> arr = [true, true, true, true, true, true, true, true, true, true];
@@ -77,7 +92,11 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
     try {
       final response = await post(Uri.parse(url), body: {
         "username": uid,
-        "modslink": link,
+        "modslink": link == "None" && modsL.values.elementAt(0) != ""
+            ? modsL.values.elementAt(0)
+            : link == ""
+                ? "None"
+                : link,
         "days": daysProvider(),
         "day_time": dayTimeProvider(),
         "gym_name": value
@@ -88,6 +107,12 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
   final gyms = ['UTown', 'MPSH', 'USC'];
 
   String value = 'UTown';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchLink();
+  }
 
   String link = "None";
 
@@ -106,6 +131,9 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
             height: 10,
           ),
           TextFormField(
+            initialValue: modsL == null || modsL.values.elementAt(0) == ""
+                ? ""
+                : modsL.values.elementAt(0),
             decoration: InputDecoration(
                 prefixIcon: Icon(Icons.schedule),
                 contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
@@ -319,7 +347,6 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
               child: DropdownButton<String>(
                 isExpanded: true,
                 value: value,
-                //iconsize:
                 items: gyms.map(buildMenuItem).toList(),
                 onChanged: (value) {
                   setState(() {
