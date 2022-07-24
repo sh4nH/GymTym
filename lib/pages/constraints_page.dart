@@ -22,19 +22,19 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
     for (var i = 0; i <= 6; i++) {
       if (arr[i]) {
         if (i == 0) {
-          days += "mon,";
+          days += "Monday,";
         } else if (i == 1) {
-          days += "tue,";
+          days += "Tuesday,";
         } else if (i == 2) {
-          days += "wed,";
+          days += "Wednesday,";
         } else if (i == 3) {
-          days += "thu,";
+          days += "Thursday,";
         } else if (i == 4) {
-          days += "fri,";
+          days += "Friday,";
         } else if (i == 5) {
-          days += "sat,";
+          days += "Saturday,";
         } else if (i == 6) {
-          days += "sun";
+          days += "Sunday";
         }
       }
     }
