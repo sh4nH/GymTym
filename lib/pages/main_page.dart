@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gymtym_login/pages/about_page.dart';
 import 'package:gymtym_login/pages/constraints_page.dart';
 import 'package:gymtym_login/pages/timeslots_default_page.dart';
@@ -21,9 +22,13 @@ class _MainPageState extends State<MainPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepPurple,
-          title: Text('Home'),
+          title: Text(
+            'Home',
+            style: GoogleFonts.oswald(),
+          ),
           centerTitle: true,
           bottom: TabBar(
+            labelStyle: GoogleFonts.oswald(),
             tabs: [
               Tab(
                 text: 'About',
