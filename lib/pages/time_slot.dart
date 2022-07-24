@@ -18,14 +18,16 @@ var list;
 class _TimeSlotPageState extends State<TimeSlotPage> {
   final userId = (FirebaseAuth.instance.currentUser!.uid);
 
-  Future<Map<String, dynamic>> _getData() async {
+  _getData() async {
     try {
       final url2 = Uri.https(
           'gymtymapi.herokuapp.com', '/timeslots/gymtyms', {'user': userId});
       final response = await get(url2);
 
       Map<String, dynamic> map = json.decode(response.body);
-      list = map;
+      setState(() {
+        list = map;
+      });
 
       // ignore: empty_catches
     } catch (e) {
@@ -91,35 +93,29 @@ class _TimeSlotPageState extends State<TimeSlotPage> {
                       AlwaysStoppedAnimation<Color>(Colors.deepPurple)));
         } else {
           return ListView.builder(
-            itemCount: list == null ? 0 : list.length,
+            itemCount: list.length,
             itemBuilder: (context, index) {
-              var day;
               var dayTitle;
-              if (index == 0) {
-                day = "mon";
+              if (list.keys.elementAt(index).toString() == "mon") {
                 dayTitle = "Monday";
-              } else if (index == 1) {
-                day = "tue";
+              } else if (list.keys.elementAt(index).toString() == "tue") {
                 dayTitle = "Tuesday";
-              } else if (index == 2) {
-                day = "wed";
+              } else if (list.keys.elementAt(index).toString() == "wed") {
                 dayTitle = "Wednesday";
-              } else if (index == 3) {
-                day = "thu";
+              } else if (list.keys.elementAt(index).toString() == "thu") {
                 dayTitle = "Thursday";
-              } else if (index == 4) {
-                day = "fri";
+              } else if (list.keys.elementAt(index).toString() == "fri") {
                 dayTitle = "Friday";
-              } else if (index == 5) {
-                day = "sat";
+              } else if (list.keys.elementAt(index).toString() == "sat") {
                 dayTitle = "Saturday";
-              } else if (index == 6) {
-                day = "sun";
+              } else if (list.keys.elementAt(index).toString() == "sun") {
                 dayTitle = "Sunday";
               }
+
               return ExpansionTile(
                 title: Text(dayTitle),
-                children: DaySlotTile(list[day]),
+                children:
+                    DaySlotTile(list[list.keys.elementAt(index).toString()]),
               );
             },
           );
