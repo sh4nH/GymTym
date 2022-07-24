@@ -47,19 +47,8 @@ class _TimeslotsPageDefaultState extends State<TimeslotsPageDefault> {
           SizedBox(
             height: 20,
           ),
-          ActionChip(
-              label: Text("Logout"),
-              onPressed: () {
-                logout(context);
-              }),
         ],
       ),
     );
   }
-}
-
-Future<void> logout(BuildContext context) async {
-  await FirebaseAuth.instance.signOut();
-  Navigator.of(context)
-      .pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
 }

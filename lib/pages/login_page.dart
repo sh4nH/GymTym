@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gymtym_login/pages/main_page.dart';
 import 'package:gymtym_login/pages/registration_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -96,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Text(
             "Login",
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: GoogleFonts.oswald(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           )),
     );
@@ -124,7 +125,9 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 20),
                     Text(
                       "Welcome to GymTym!",
-                      style: TextStyle(fontSize: 20, color: Colors.deepPurple),
+                      style: GoogleFonts.oswald(
+                          textStyle: TextStyle(
+                              fontSize: 20, color: Colors.deepPurple)),
                     ),
                     SizedBox(
                       height: 35,
@@ -138,7 +141,10 @@ class _LoginPageState extends State<LoginPage> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text("Don't have an account? "),
+                          Text(
+                            "Don't have an account? ",
+                            style: GoogleFonts.oswald(),
+                          ),
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -149,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                             },
                             child: Text(
                               "Sign Up",
-                              style: TextStyle(
+                              style: GoogleFonts.oswald(
                                   color: Colors.deepPurple,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15),

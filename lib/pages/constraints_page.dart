@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -117,6 +119,15 @@ class _ConstraintsPageState extends State<ConstraintsPage> {
             onChanged: (text) {
               this.link = text;
             },
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Center(
+            child: Text(
+              "Please leave this empty if you have already submitted your timetable link before.",
+              textAlign: TextAlign.center,
+            ),
           ),
           SizedBox(
             height: 10,

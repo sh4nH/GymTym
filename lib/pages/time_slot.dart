@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gymtym_login/pages/about_page.dart';
 import 'package:gymtym_login/pages/constraints_page.dart';
 import 'package:http/http.dart';
@@ -30,9 +31,7 @@ class _TimeSlotPageState extends State<TimeSlotPage> {
       });
 
       // ignore: empty_catches
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
     return list;
   }
 
@@ -51,9 +50,9 @@ class _TimeSlotPageState extends State<TimeSlotPage> {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.deepPurple,
-            title: Text('Home'),
+            title: Text('Home', style: GoogleFonts.oswald()),
             centerTitle: true,
-            bottom: TabBar(tabs: [
+            bottom: TabBar(labelStyle: GoogleFonts.oswald(), tabs: [
               Tab(
                 text: 'About',
                 icon: Icon(Icons.aod_rounded),
@@ -76,51 +75,60 @@ class _TimeSlotPageState extends State<TimeSlotPage> {
   }
 
   Widget ExpTile() {
-    return FutureBuilder(
-      future: _getData(),
-      builder: (context, AsyncSnapshot snapshot) {
-        if (snapshot.hasError) {
-          return Center(
-            child: Text(
-              "Invalid NUSMods Link\nSlide down to refresh",
-              style: TextStyle(color: Colors.deepOrange),
-            ),
-          );
-        } else if (!snapshot.hasData) {
-          return Center(
-              child: CircularProgressIndicator(
-                  valueColor:
-                      AlwaysStoppedAnimation<Color>(Colors.deepPurple)));
-        } else {
-          return ListView.builder(
-            itemCount: list.length,
-            itemBuilder: (context, index) {
-              var dayTitle;
-              if (list.keys.elementAt(index).toString() == "mon") {
-                dayTitle = "Monday";
-              } else if (list.keys.elementAt(index).toString() == "tue") {
-                dayTitle = "Tuesday";
-              } else if (list.keys.elementAt(index).toString() == "wed") {
-                dayTitle = "Wednesday";
-              } else if (list.keys.elementAt(index).toString() == "thu") {
-                dayTitle = "Thursday";
-              } else if (list.keys.elementAt(index).toString() == "fri") {
-                dayTitle = "Friday";
-              } else if (list.keys.elementAt(index).toString() == "sat") {
-                dayTitle = "Saturday";
-              } else if (list.keys.elementAt(index).toString() == "sun") {
-                dayTitle = "Sunday";
-              }
-
-              return ExpansionTile(
-                title: Text(dayTitle),
-                children:
-                    DaySlotTile(list[list.keys.elementAt(index).toString()]),
+    return Scaffold(
+      body: RefreshIndicator(
+        onRefresh: () {
+          return Future(() {
+            setState(() {});
+          });
+        },
+        child: FutureBuilder(
+          future: _getData(),
+          builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  "Invalid NUSMods Link\nSlide down to refresh",
+                  style: TextStyle(color: Colors.deepOrange),
+                ),
               );
-            },
-          );
-        }
-      },
+            } else if (!snapshot.hasData) {
+              return Center(
+                  child: CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Colors.deepPurple)));
+            } else {
+              return ListView.builder(
+                itemCount: list.length,
+                itemBuilder: (context, index) {
+                  var dayTitle;
+                  if (list.keys.elementAt(index).toString() == "mon") {
+                    dayTitle = "Monday";
+                  } else if (list.keys.elementAt(index).toString() == "tue") {
+                    dayTitle = "Tuesday";
+                  } else if (list.keys.elementAt(index).toString() == "wed") {
+                    dayTitle = "Wednesday";
+                  } else if (list.keys.elementAt(index).toString() == "thu") {
+                    dayTitle = "Thursday";
+                  } else if (list.keys.elementAt(index).toString() == "fri") {
+                    dayTitle = "Friday";
+                  } else if (list.keys.elementAt(index).toString() == "sat") {
+                    dayTitle = "Saturday";
+                  } else if (list.keys.elementAt(index).toString() == "sun") {
+                    dayTitle = "Sunday";
+                  }
+
+                  return ExpansionTile(
+                    title: Text(dayTitle),
+                    children: DaySlotTile(
+                        list[list.keys.elementAt(index).toString()]),
+                  );
+                },
+              );
+            }
+          },
+        ),
+      ),
     );
   }
 
