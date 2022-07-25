@@ -35,7 +35,7 @@ if (keystorePropertiesFile.exists()) {
 
 
 android {
-    compileSdkVersion localProperties.getProperty('flutter.compileSdkVersion').toInteger()
+    compileSdkVersion 31
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -52,8 +52,8 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion localProperties.getProperty('flutter.minSdkVersion').toInteger()
-        targetSdkVersion localProperties.getProperty('flutter.targetSdkVersion').toInteger()
+        minSdkVersion 19
+        targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
