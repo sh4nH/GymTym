@@ -9,8 +9,16 @@ NUS gyms can often get crowded, making waiting time for machine usage extremely 
 ## Description
 GymTym is an Android mobile application for the gym users of NUS to find the least crowded time slot to go the 3 on campus gyms (Utown/MPSH/USC). The app allows users to create an account, following which the user can input his NUSMods timetable link, and select constraints such as the preferred days of the week, time of the day and gym location. The app then suggests a few time slots to the user, in order of least crowded to most crowded.
 
-## User Flow
-![Alt text](screesnhots.PNG)
+# Screenshots
+
+| ![Image 1](photo_5825468275226689220_x.jpg) | ![Image 2](photo_5825468275226689223_x.jpg) | ![Image 3](photo_5825468275226689222_x.jpg) |
+|:---:|:---:|:---:|
+| *Login Page* | *SignUp Page* | *Home Page* |
+
+| ![Image 4](photo_5825468275226689219_x.jpg) | ![Image 5](photo_5825468275226689221_x.jpg) |
+|:---:|:---:|
+|  |  |
+
 
 ## How it works
 
