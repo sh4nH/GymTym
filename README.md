@@ -11,11 +11,11 @@ GymTym is an Android mobile application for the gym users of NUS to find the lea
 
 ## Screenshots
 
-| ![Image 1](photo_5825468275226689220_x.jpg) | ![Image 2](photo_5825468275226689223_x.jpg) | ![Image 3](photo_5825468275226689222_x.jpg) |
+| ![Image 1](screenshots/photo_5825468275226689220_x.jpg) | ![Image 2](screenshots/photo_5825468275226689223_x.jpg) | ![Image 3](screenshots/photo_5825468275226689222_x.jpg) |
 |:---:|:---:|:---:|
 | *Login Page* | *SignUp Page* | *Home Page* |
 
-| ![Image 4](photo_5825468275226689219_x.jpg) | ![Image 5](photo_5825468275226689221_x.jpg) |
+| ![Image 4](screenshots/photo_5825468275226689219_x.jpg) | ![Image 5](screenshots/photo_5825468275226689221_x.jpg) |
 |:---:|:---:|
 |  |  |
 
