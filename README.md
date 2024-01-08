@@ -20,9 +20,14 @@ GymTym is an Android mobile application for the gym users of NUS to find the lea
 |  |  |
 
 
+
 ## How it works
 
 We have set up a web scraper that periodically scrapes live crowd data (at regular 20 minute intervals) from the NUS REBOKS website. This crowd data is stored in a database, along the user timetable and constraints. This way, everytime a user logs in to the app, the app can suggest best timeslots taking into account average gym crowd at the time.
+
+## Demo
+
+Click [here](bit.ly/gymtym-demo) to view the video demo of GymTym.
 
 ## Testing
 
